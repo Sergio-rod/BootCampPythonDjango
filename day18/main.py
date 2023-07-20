@@ -7,7 +7,7 @@ def random_color():
     g = random.randint(0, 255)
     b = random.randint(0, 255)
 
-    randomize_color = (r, g, b)
+    randomize_color = (r / 255.0, g / 255.0, b / 255.0)  # Normalize to the range [0.0, 1.0]
     return randomize_color
 
 
@@ -30,11 +30,11 @@ def random_walk(angle):
     angle = random.choice(angle)
     distance = 30
     sergio_turtle.color(random_color())
-    sergio_turtle.forward(distance)
+    sergio_turtle.back(distance)
     sergio_turtle.setheading(angle)
 
 
-for i in range(300):
+for i in range(100):
     random_walk(movements)
 
 
