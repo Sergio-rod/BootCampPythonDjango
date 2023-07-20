@@ -16,13 +16,9 @@ sergio_turtle = Turtle()
 sergio_turtle.shape('turtle')
 
 sergio_turtle.speed('fastest')
-sergio_turtle.pensize(12)
+sergio_turtle.pensize(1)
 
 movements = [0, 90, 180, 270, 360]
-"""colors = [
-    "red", "orange", "yellow", "green", "blue", "purple",
-    "cyan", "magenta", "brown", "gray", "black", "white"
-]"""
 
 
 def random_walk(angle):
@@ -34,9 +30,14 @@ def random_walk(angle):
     sergio_turtle.setheading(angle)
 
 
-for i in range(100):
-    random_walk(movements)
+def draw_spirograph(size):
+    for i in range(0, 361, size):
+        sergio_turtle.circle(100)
+        sergio_turtle.color(random_color())
+        sergio_turtle.setheading(i)
 
+
+draw_spirograph(30)
 
 screen = Screen()
 screen.exitonclick()
