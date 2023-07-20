@@ -1,48 +1,41 @@
 from turtle import Turtle, Screen
+import random
 
-"""
-sergio_turtle = Turtle()
 
-sergio_turtle.shape('turtle')
-sergio_turtle.color('red')
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
 
-for i in range(4):
-   for j in range(6):
-    sergio_turtle.forward(20)
-    sergio_turtle.penup()
-    sergio_turtle.forward(20)
-    sergio_turtle.pendown()
+    randomize_color = (r, g, b)
+    return randomize_color
 
-   sergio_turtle.right(90)
-"""
 
 sergio_turtle = Turtle()
 
 sergio_turtle.shape('turtle')
-sergio_turtle.color('red')
+
+sergio_turtle.speed('fastest')
+sergio_turtle.pensize(12)
+
+movements = [0, 90, 180, 270, 360]
+"""colors = [
+    "red", "orange", "yellow", "green", "blue", "purple",
+    "cyan", "magenta", "brown", "gray", "black", "white"
+]"""
 
 
-for i in range(3, 11):
-    for j in range(i):
-        current_degrees = 360/i
-        sergio_turtle.forward(50)
-        sergio_turtle.left(current_degrees)
+def random_walk(angle):
+
+    angle = random.choice(angle)
+    distance = 30
+    sergio_turtle.color(random_color())
+    sergio_turtle.forward(distance)
+    sergio_turtle.setheading(angle)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for i in range(300):
+    random_walk(movements)
 
 
 screen = Screen()
