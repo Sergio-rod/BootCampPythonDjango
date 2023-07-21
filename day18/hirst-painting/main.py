@@ -35,6 +35,7 @@ sergio = t.Turtle()
 colors = convert_rgb(color_list)
 y_cor = 300
 x_cor = -250
+sergio.hideturtle()
 
 for i in range(10):
     sergio.penup()
@@ -51,5 +52,4 @@ for i in range(10):
 
 
 screen = t.Screen()
-screen.colormode(255)
 screen.exitonclick()
