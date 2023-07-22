@@ -1,17 +1,23 @@
 from turtle import Turtle
 import time
 
+UP = 90
+DOWN = 270
+RIGHT = 0
+LEFT = 180
+
 
 class Snake:
     def __init__(self):
         self.snake = []
         self.create_snake()
+        self.head = self.snake[0]
 
     def create_dots(self):
         snake_dots = []
         for _ in range(3):
             new_dot = Turtle()
-            new_dot.color('white')
+            new_dot.color('green')
             new_dot.shape('square')
             new_dot.penup()
             snake_dots.append(new_dot)
@@ -25,6 +31,10 @@ class Snake:
             self.snake.append(dot)
             x_cor -= 20
 
+    def add_dot(self):
+
+    def extend(self):
+
     def move(self):
         time.sleep(.1)
         for snake_dot in range(len(self.snake) - 1, 0, -1):
@@ -33,29 +43,19 @@ class Snake:
             self.snake[snake_dot].goto(new_x, new_y)
         self.snake[0].forward(20)
 
-
-
     def up(self):
-        if self.snake[0].heading() == 270:
-            self.snake[0].seth(270)
-        else:
-            self.snake[0].seth(90)
+        if self.snake[0].heading() != DOWN:
+            self.snake[0].seth(UP)
 
     def down(self):
-        if self.snake[0].heading() == 90:
-            self.snake[0].seth(90)
-        else:
-            self.snake[0].seth(270)
+        if self.snake[0].heading() != UP:
+            self.snake[0].seth(DOWN)
 
     def right(self):
-        if self.snake[0].heading() == 180:
-            self.snake[0].seth(180)
-        else:
-            self.snake[0].seth(0)
+        if self.snake[0].heading() != LEFT:
+            self.snake[0].seth(RIGHT)
 
     def left(self):
-        if self.snake[0].heading() == 0:
-            self.snake[0].seth(0)
-        else:
-            self.snake[0].seth(180)
+        if self.snake[0].heading() != RIGHT:
+            self.snake[0].seth(LEFT)
 
