@@ -33,15 +33,29 @@ class Snake:
             self.snake[snake_dot].goto(new_x, new_y)
         self.snake[0].forward(20)
 
+
+
     def up(self):
-        self.snake[0].seth(90)
+        if self.snake[0].heading() == 270:
+            self.snake[0].seth(270)
+        else:
+            self.snake[0].seth(90)
 
     def down(self):
-        self.snake[0].seth(270)
+        if self.snake[0].heading() == 90:
+            self.snake[0].seth(90)
+        else:
+            self.snake[0].seth(270)
 
     def right(self):
-        self.snake[0].seth(0)
+        if self.snake[0].heading() == 180:
+            self.snake[0].seth(180)
+        else:
+            self.snake[0].seth(0)
 
     def left(self):
-        self.snake[0].seth(180)
+        if self.snake[0].heading() == 0:
+            self.snake[0].seth(0)
+        else:
+            self.snake[0].seth(180)
 
