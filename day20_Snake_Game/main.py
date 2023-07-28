@@ -36,13 +36,13 @@ while game_is_on:
         score.increment_points()
     # Detect coalition with corners
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        game_is_on = False
-        score.game_over()
+        score.reset()
+        snake.reset()
     # Detect coalition with itself
     for dot in snake.snake[1:]:
         if snake.head.distance(dot) < 10:
-            game_is_on = False
-            score.game_over()
+            score.reset()
+            snake.reset()
 
 
 

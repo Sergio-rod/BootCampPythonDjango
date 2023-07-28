@@ -14,6 +14,7 @@ class Snake:
         self.snake = []
         self.create_snake()
         self.head = self.snake[0]
+        self.speed = .1
 
     def add_dot(self, position):
         new_dot = Turtle('square')
@@ -24,13 +25,25 @@ class Snake:
 
     def extend(self):
         self.add_dot(self.snake[-1].position())
+        self.speed *= .98
+        print(self.speed)
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
             self.add_dot(position)
+    def reset(self):
+
+        for seg in self.snake:
+            seg.goto(1000, 1000)
+
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
+        self.speed = .1
+
 
     def move(self):
-        time.sleep(.1)
+        time.sleep(self.speed)
         for snake_dot in range(len(self.snake) - 1, 0, -1):
             new_x = self.snake[snake_dot - 1].xcor()
             new_y = self.snake[snake_dot - 1].ycor()
